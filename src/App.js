@@ -1,22 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
-import Header from './pages/Header/Header';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Headerbody from './pages/Headerbody/Headerbody';
-import { Route, Routes } from 'react-router-dom';
-import Breakfast from './Breakfast';
+import { createContext, useState } from "react";
+import { Route, Routes } from "react-router-dom";
+import "./App.css";
+import Breakfast from "./components/Food/Breakfast/Breakfast";
+import Dinner from "./components/Food/Dinner/Dinner";
+import Lunch from "./components/Food/Lunch/Lunch";
+import Main from "./components/Main/Main";
+
+export const MyFoodContext = createContext();
 
 function App() {
+  const [breakfast, setBreakfast] = useState([]);
+
   return (
-    <div className="App">
-      <Header></Header>
-      <Headerbody></Headerbody>
-      <Routes>
-        <Route path='/breakfast' element={<Breakfast></Breakfast>}></Route>
-        <Route></Route>
-        <Route></Route>
-      </Routes>
-    </div>
+    <MyFoodContext.Provider value={[breakfast, setBreakfast]}>
+      <div>
+        <Routes>
+          <Route path="/" element={<Main />} />
+          <Route path="/breakfast" element={<Breakfast />} />
+          <Route path="/lunch" element={<Lunch />} />
+          <Route path="/dinner" element={<Dinner />} />
+        </Routes>
+      </div>
+    </MyFoodContext.Provider>
   );
 }
 
