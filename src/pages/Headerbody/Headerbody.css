@@ -1,0 +1,25 @@
+.text-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+}
+
+.text-box button {
+    position: absolute;
+    bottom: 1px;
+    right: 38px;
+    border-radius: 10px;
+    color: #000;
+    background: red;
+}
+
+.text-box input {
+    display: block;
+    width: 500px;
+    text-align: center;
+    margin: auto;
+    border-radius: 10px;
+    border: outset;
+}
